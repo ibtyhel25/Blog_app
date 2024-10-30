@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'blog/profile.css' %}">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{% url 'main' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+</header>
+
+<section class="profile-container">
+    <div class="profile-header">
+        {% if user.profile.profile_picture %}
+            <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+        {% else %}
+            <img src="{% static 'default_profile_picture.png' %}" alt="Default Profile Picture">
+            <!-- Use a default image -->
+        {% endif %}
+        <h2>{{ user.username }}</h2>
+        <p>{{ user.bio }}</p>
+        <a href="{% url 'edit_profile' user.username %}">Edit Profile</a>
+    </div>
+
+    <div class="profile-info">
+        <h3>Personal Information</h3>
+        <ul>
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Member Since:</strong> {{ user.date_joined }}</li>
+        </ul>
+    </div>
+
+    <div class="profile-posts">
+        <h3>Recent Activity</h3>
+        <h2>Posts</h2>
+        {% for post in posts %}
+            <div class="post-card">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 200px;">
+                {% endif %}
+                <p>Upvotes: {{ post.upvotes }} | Downvotes: {{ post.downvotes }}</p>
+            </div>
+        {% empty %}
+            <p>No posts available.</p>
+        {% endfor %}
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Your Blog</p>
+</footer>
+</body>
+</html>

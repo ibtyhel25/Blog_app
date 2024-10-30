@@ -1,0 +1,26 @@
+ {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+<h1>{{ post.title }}</h1>
+<p>By: {{ post.author.username }}</p>  <!-- Display author -->
+<p>{{ post.content }}</p>
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 200px;">
+{% endif %}
+<p>Upvotes: {{ post.upvotes }} | Downvotes: {{ post.downvotes }}</p>
+<a href="{% url 'upvote_post' post.id %}">Upvote</a>
+<a href="{% url 'downvote_post' post.id %}">Downvote</a>
+
+<h2>Comments</h2>
+{% for comment in post.comments.all %}
+    <div>
+        <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>  <!-- Display comment author -->
+        {% if comment.image %}
+            <img src="{{ comment.image.url }}" alt="Comment Image" style="max-width: 200px;">
+        {% endif %}
+        <p>Upvotes: {{ comment.upvotes }} | Downvotes: {{ comment.downvotes }}</p>
+        <a href="{% url 'upvote_comment' comment.id %}">Upvote</a>
+        <a href="{% url 'downvote_comment' comment.id %}">Downvote</a>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}

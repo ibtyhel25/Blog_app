@@ -1,0 +1,556 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background for contrast */
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px; /* Add space for footer */
+}
+
+/* Sidebar (User List) */
+aside.user-list {
+    width: 25%; /* Sidebar width */
+    padding: 20px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    height: 100vh; /* Full height */
+    position: fixed; /* Sticky sidebar */
+}
+
+aside.user-list h3 {
+    color: #4267B2; /* Facebook-like blue */
+    margin-bottom: 10px;
+}
+
+aside.user-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside.user-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+aside.user-list li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 25%; /* To account for the fixed sidebar */
+}
+
+/* Post Styling */
+.post {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s;
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the modal */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px; /* Make it responsive */
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f44336; /* Red on hover */
+}
+
+/* Dropdown Menu */
+nav {
+    background-color: #4267B2; /* Blue */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropbtn {
+    background-color: #4267B2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown:hover .dropbtn {
+    background-color: #3b5998; /* Slightly darker blue on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #4267B2;
+    color: white; /* Adjust the background color */
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center; /* Center align footer text */
+}
+
+footer:hover {
+    background-color: #3b5998; /* Change color on hover */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Remove default margin/padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Full-width container with no spacing on the sides */
+.container {
+    display: flex;
+    max-width: 100%; /* Take up the full width */
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar aligned to the far left */
+aside.user-list {
+    width: 25%; /* Sidebar width */
+    padding: 20px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    left: 0; /* Ensure it's pinned to the left */
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Main content taking up the remaining space */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 0; /* No margin to keep it right next to the sidebar */
+}
+
+/* Post Card Styles */
+.post-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+/* Post Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.post-header p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Post Content */
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.post-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Post Footer (Upvotes/Downvotes) */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-footer button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.post-footer button:hover {
+    background-color: #ddd;
+}
+
+.comment-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.comment-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.comment-form {
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+.comments-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.comment-content {
+    margin: 5px 0;
+    color: #555;
+}
+
+.comment-image {
+    max-width: 100px; /* Limit image width */
+    margin-top: 5px; /* Space above the image */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+.comment-actions {
+    margin-top: 10px; /* Space above actions */
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.comment-actions button:hover {
+    text-decoration: underline;
+}
+
+.edit-comment-form {
+    margin-top: 10px; /* Space above the edit form */
+}
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the modal */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 80%; /* Increased width for larger modal */
+    max-width: 800px; /* Max width to prevent it from being too wide */
+    position: relative;
+    animation: slide-in 0.3s ease-in-out; /* Slide-in animation */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px); /* Slide in from above */
+        opacity: 0; /* Start transparent */
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* Fade in */
+    }
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f44336; /* Red on hover */
+}
+
+/* Form Elements Inside Modal */
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width inside modal */
+    margin-bottom: 15px; /* Space below inputs */
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="email"]:focus,
+.modal-content textarea:focus {
+    border-color: #4267B2; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(66, 103, 178, 0.5); /* Subtle shadow on focus */
+}
+
+.modal-content button {
+    background-color: #4267B2; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-content button:hover {
+    background-color: #3b5998; /* Darker shade on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+.modal-content button:active {
+    transform: translateY(0); /* Reset on click */
+}
+/* General Styles for Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between elements */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #4267B2; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(66, 103, 178, 0.5); /* Subtle shadow on focus */
+}
+
+/* Submit and Button Styles */
+button,
+.comment-form button {
+    background-color: #4267B2; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover,
+.comment-form button:hover {
+    background-color: #3b5998; /* Darker shade on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+button:active,
+.comment-form button:active {
+    transform: translateY(0); /* Reset on click */
+}
+
+/* Comment Section */
+.comment-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Comment Form Styling */
+.comment-form {
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    min-height: 80px; /* Minimum height for textarea */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    aside.user-list {
+        width: 100%; /* Full width on small screens */
+        position: relative; /* Allow normal flow */
+        height: auto; /* Remove fixed height */
+    }
+
+    main {
+        margin-left: 0; /* No margin on small screens */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .post-card {
+        max-width: 100%; /* Full width on small screens */
+    }
+}
+
+/* Modal Input Styles */
+.modal-content input[type="text"],
+.modal-content textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width inside modal */
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content textarea:focus {
+    border-color: #4267B2; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(66, 103, 178, 0.5); /* Subtle shadow on focus */
+}

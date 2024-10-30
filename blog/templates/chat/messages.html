@@ -1,0 +1,16 @@
+{% for message in messages %}
+    <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+        <div class="message-content">
+            {% if message.sender != request.user %}
+                <strong>{{ message.sender.username }}:</strong>
+            {% endif %}
+            {{ message.content }}
+            {% if message.image %}
+                <br>
+                <img src="{{ message.image.url }}" alt="Image" class="message-image">
+            {% endif %}
+        </div>
+    </div>
+{% empty %}
+    <div class="no-messages">Aucun message.</div>
+{% endfor %}

@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background for contrast */
+}
+
+
+
+nav {
+    background-color: #4267B2; /* Blue */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropbtn {
+    background-color: #4267B2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown:hover .dropbtn {
+    background-color: #3b5998; /* Slightly darker blue on hover */
+}
+
+/* Chat Container */
+.chat-container {
+    max-height: 500px; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling */
+    padding: 20px;
+    background-color: #ffffff; /* White background for chat area */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin: 20px 0; /* Margin above and below chat area */
+}
+
+/* Message Styles */
+.message {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.sent {
+    justify-content: flex-end; /* Align sent messages to the right */
+}
+
+.received {
+    justify-content: flex-start; /* Align received messages to the left */
+}
+
+.message-content {
+    max-width: 75%; /* Limit width for messages */
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+}
+
+.sent .message-content {
+    background-color: #8ab0e1; /* Light green for sent messages */
+    border: 1px solid #3b5998; /* Border color for sent messages */
+    border-radius: 10px 10px 0 10px; /* Rounded corners */
+}
+
+.received .message-content {
+    background-color: #ffffff; /* White for received messages */
+    border: 1px solid #ddd; /* Border color for received messages */
+    border-radius: 10px 10px 10px 0; /* Rounded corners */
+}
+
+.message-image {
+    max-width: 100%; /* Limit image width */
+    border-radius: 5px; /* Rounded corners for images */
+    margin-top: 5px; /* Space above the image */
+}
+
+.no-messages {
+    color: #777; /* Gray color for no messages text */
+    text-align: center; /* Center align text */
+    margin: 20px 0; /* Margin above and below */
+}
+
+/* Form Styling */
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Light gray background */
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    max-width: 600px; /* Max width for the input area */
+    margin: 10px auto; /* Center the input area with margin */
+}
+
+.message-text {
+    flex-grow: 1; /* Take remaining space */
+    border: none; /* Remove border */
+    background: transparent; /* Transparent background */
+    padding: 10px; /* Padding for text input */
+    border-radius: 25px; /* Match rounded corners */
+    margin-left: 10px; /* Space between icon and input */
+    font-size: 16px; /* Font size for input */
+}
+
+.message-text:focus {
+    outline: none; /* Remove default outline on focus */
+}
+
+.icon-button {
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #4267B2; /* Icon color */
+    font-size: 24px; /* Icon size */
+}
+
+.send-button {
+    background-color: #4267B2; /* Send button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 50%; /* Circle shape */
+    padding: 10px; /* Padding around the icon */
+    margin-left: 10px; /* Space between text input and button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.send-button:hover {
+    background-color: #3b5998; /* Darker shade on hover */
+}
+
+.file-input {
+    display: none; /* Hide the file input */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 10px; /* Reduce padding on small screens */
+    }
+
+    .message-input {
+        flex-direction: column; /* Stack form elements */
+    }
+
+    .message-text {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space below textarea */
+    }
+
+    .file-input {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space below input */
+    }
+}

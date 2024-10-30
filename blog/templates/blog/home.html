@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Landing Page</title>
+    <link rel="stylesheet" href="{% static 'blog/landing.css' %}">
+
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="#about">About</a>
+    </nav>
+    <div class="hero">
+        <h1>Welcome to Our Blog</h1>
+        <p>Your go-to place for the latest insights and trends</p>
+        <a href="register" class="cta-button">Explore Blog Posts</a>
+    </div>
+</header>
+
+<section id="about" class="about-section">
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>
+            Welcome to our blog, your destination for the latest news, trends, and tutorials in technology, lifestyle,
+            and beyond.
+            Our mission is to bring together a community of like-minded individuals who share a passion for learning and
+            innovation.
+        </p>
+        <div class="about-features">
+            <div class="feature">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovative Ideas</h3>
+                <p>Stay updated with cutting-edge insights and creative solutions from industry experts.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>Community Driven</h3>
+                <p>Join a growing community of tech enthusiasts, learners, and creators.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-book-open"></i>
+                <h3>Educational Content</h3>
+                <p>Access well-researched tutorials, articles, and guides to fuel your knowledge.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<h1>Trending Posts</h1>
+
+<div class="trending-posts-container">
+    {% for post in posts %}
+        <div class="post-card">
+            <h3>{{ post.title }}<span>  By: {{ post.author }}</span></h3>
+            <p>{{ post.content|truncatewords:20 }}</p> <!-- Truncate content to 20 words -->
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image">
+            {% endif %}
+            <div class="vote-info">
+                Upvotes: {{ post.upvotes }} | Downvotes: {{ post.downvotes }}
+            </div>
+        </div>
+    {% empty %}
+        <p>No trending posts available.</p>
+    {% endfor %}
+</div>
+
+<footer>
+    <p>&copy; 2024 Your Blog</p>
+</footer>
+</body>
+</html>
